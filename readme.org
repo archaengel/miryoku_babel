@@ -352,7 +352,7 @@ Currently not available with ~MIRYOKU_LAYERS=FLIP~
 ****** Thumbs
 
 #+NAME: thumbs-swap-outside
-| U_NP | U_NP | DEL  | BSPC | ENT  | TAB  | SPC  | ESC  | U_NP | U_NP |
+| U_NP  | U_NP  | ESC   | BSPC   | TAB   | ENT   | SPC  | DEL   | U_NP  | U_NP  |
 
 ****** Fun 
 
