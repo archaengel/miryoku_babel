@@ -340,6 +340,56 @@ Not available with ~MIRYOKU_LAYERS=FLIP~.
 | MSTP    | MPLY     | MUTE     | U_NP     | U_NP     |
 
 
+**** Thumbs
+
+
+***** Swap Outside
+
+~MIRYOKU_THUMBS=SWAP_OUTSIDE~
+
+Currently not available with ~MIRYOKU_LAYERS=FLIP~
+
+****** Thumbs
+
+#+NAME: thumbs-swap-outside
+| U_NP  | U_NP  | ESC   | BSPC   | TAB   | ENT   | SPC  | DEL   | U_NP  | U_NP  |
+
+****** Fun 
+
+#+NAME: fun-l-swap-outside
+| F12  | F7   | F8   | F9   | PSCR |
+| F11  | F4   | F5   | F6   | SLCK |
+| F10  | F1   | F2   | F3   | PAUS |
+| U_NP | U_NP | APP  | BSPC | TAB  |
+
+****** Nav 
+
+******* Default 
+
+#+NAME: nav-r-swap-outside
+| U_RDO | U_PST | U_CPY | U_CUT | U_UND |
+| CAPS  | LEFT  | DOWN  | UP    | RGHT  |
+| HOME  | PGDN  | PGUP  | END   | INS   |
+| ENT   | SPC   | DEL   | U_NP  | U_NP  |
+
+******* Vi 
+
+#+NAME: nav-r-vi-swap-outside
+| U_RDO | U_PST | U_CPY | U_CUT | U_UND |
+| LEFT  | DOWN  | UP    | RGHT  | CAPS  |
+| HOME  | PGDN  | PGUP  | END   | INS   |
+| ENT   | SPC   | DEL   | U_NP  | U_NP  |
+
+******* Inverted-T 
+
+#+NAME: nav-r-invertedt-swap-outside
+| INS   | HOME  | UP    | END   | PGUP  |
+| CAPS  | LEFT  | DOWN  | RGHT  | PGDN  |
+| U_RDO | U_PST | U_CPY | U_CUT | U_UND |
+| ENT   | SPC   | DEL   | U_NP  | U_NP  |
+
+
+
 **** Layers
 
 
@@ -894,28 +944,54 @@ Body of miryoku_layer_selection.h.
       #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH_FLIP
     #endif
   #else
-    #if defined (MIRYOKU_ALPHAS_AZERTY)
-      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_AZERTY
-    #elif defined (MIRYOKU_ALPHAS_BEAKL15)
-      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_BEAKL15
-    #elif defined (MIRYOKU_ALPHAS_COLEMAK)
-      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAK
-    #elif defined (MIRYOKU_ALPHAS_COLEMAKDH)
-      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH
-    #elif defined (MIRYOKU_ALPHAS_COLEMAKDHK)
-      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAKDHK
-    #elif defined (MIRYOKU_ALPHAS_DVORAK)
-      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_DVORAK
-    #elif defined (MIRYOKU_ALPHAS_HALMAK)
-      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_HALMAK
-    #elif defined (MIRYOKU_ALPHAS_WORKMAN)
-      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_WORKMAN
-    #elif defined (MIRYOKU_ALPHAS_QWERTY)
-      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_QWERTY
-    #elif defined (MIRYOKU_ALPHAS_QWERTZ)
-      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_QWERTZ
+    #if defined (MIRYOKU_THUMBS_SWAP_OUTSIDE)
+      #if defined (MIRYOKU_ALPHAS_AZERTY)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_AZERTY_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_ALPHAS_BEAKL15)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_BEAKL15_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_ALPHAS_COLEMAK)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAK_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_ALPHAS_COLEMAKDH)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_ALPHAS_COLEMAKDHK)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAKDHK_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_ALPHAS_DVORAK)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_DVORAK_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_ALPHAS_HALMAK)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_HALMAK_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_ALPHAS_WORKMAN)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_WORKMAN_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_ALPHAS_QWERTY)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_QWERTY_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_ALPHAS_QWERTZ)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_QWERTZ_SWAP_OUTSIDE
+      #else
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH_SWAP_OUTSIDE
+      #endif
     #else
-      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH
+      #if defined (MIRYOKU_ALPHAS_AZERTY)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_AZERTY
+      #elif defined (MIRYOKU_ALPHAS_BEAKL15)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_BEAKL15
+      #elif defined (MIRYOKU_ALPHAS_COLEMAK)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAK
+      #elif defined (MIRYOKU_ALPHAS_COLEMAKDH)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH
+      #elif defined (MIRYOKU_ALPHAS_COLEMAKDHK)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAKDHK
+      #elif defined (MIRYOKU_ALPHAS_DVORAK)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_DVORAK
+      #elif defined (MIRYOKU_ALPHAS_HALMAK)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_HALMAK
+      #elif defined (MIRYOKU_ALPHAS_WORKMAN)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_WORKMAN
+      #elif defined (MIRYOKU_ALPHAS_QWERTY)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_QWERTY
+      #elif defined (MIRYOKU_ALPHAS_QWERTZ)
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_QWERTZ
+      #else
+        #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH
+      #endif
     #endif
   #endif
 #endif
@@ -949,28 +1025,54 @@ Body of miryoku_layer_selection.h.
       #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_QWERTY_FLIP
     #endif
   #else
-    #if defined (MIRYOKU_EXTRA_AZERTY)
-      #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_AZERTY
-    #elif defined (MIRYOKU_EXTRA_BEAKL15)
-      #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_BEAKL15
-    #elif defined (MIRYOKU_EXTRA_COLEMAK)
-      #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_COLEMAK
-    #elif defined (MIRYOKU_EXTRA_COLEMAKDH)
-      #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH
-    #elif defined (MIRYOKU_EXTRA_COLEMAKDHK)
-      #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_COLEMAKDHK
-    #elif defined (MIRYOKU_EXTRA_DVORAK)
-      #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_DVORAK
-    #elif defined (MIRYOKU_EXTRA_HALMAK)
-      #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_HALMAK
-    #elif defined (MIRYOKU_EXTRA_WORKMAN)
-      #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_WORKMAN
-    #elif defined (MIRYOKU_EXTRA_QWERTY)
-      #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_QWERTY
-    #elif defined (MIRYOKU_EXTRA_QWERTZ)
-      #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_QWERTZ
+    #if defined (MIRYOKU_THUMBS_SWAP_OUTSIDE)
+      #if defined (MIRYOKU_EXTRA_AZERTY)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_AZERTY_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_EXTRA_BEAKL15)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_BEAKL15_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_EXTRA_COLEMAK)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_COLEMAK_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_EXTRA_COLEMAKDH)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_EXTRA_COLEMAKDHK)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_COLEMAKDHK_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_EXTRA_DVORAK)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_DVORAK_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_EXTRA_HALMAK)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_HALMAK_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_EXTRA_WORKMAN)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_WORKMAN_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_EXTRA_QWERTY)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_QWERTY_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_EXTRA_QWERTZ)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_QWERTZ_SWAP_OUTSIDE
+      #else
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_QWERTY_SWAP_OUTSIDE
+      #endif
     #else
-      #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_QWERTY
+      #if defined (MIRYOKU_EXTRA_AZERTY)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_AZERTY
+      #elif defined (MIRYOKU_EXTRA_BEAKL15)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_BEAKL15
+      #elif defined (MIRYOKU_EXTRA_COLEMAK)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_COLEMAK
+      #elif defined (MIRYOKU_EXTRA_COLEMAKDH)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH
+      #elif defined (MIRYOKU_EXTRA_COLEMAKDHK)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_COLEMAKDHK
+      #elif defined (MIRYOKU_EXTRA_DVORAK)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_DVORAK
+      #elif defined (MIRYOKU_EXTRA_HALMAK)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_HALMAK
+      #elif defined (MIRYOKU_EXTRA_WORKMAN)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_WORKMAN
+      #elif defined (MIRYOKU_EXTRA_QWERTY)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_QWERTY
+      #elif defined (MIRYOKU_EXTRA_QWERTZ)
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_QWERTZ
+      #else
+        #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_QWERTY
+      #endif
     #endif
   #endif
 #endif
@@ -1004,28 +1106,54 @@ Body of miryoku_layer_selection.h.
       #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_COLEMAKDH_FLIP
     #endif
   #else
-    #if defined (MIRYOKU_TAP_AZERTY)
-      #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_AZERTY
-    #elif defined (MIRYOKU_TAP_BEAKL15)
-      #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_BEAKL15
-    #elif defined (MIRYOKU_TAP_COLEMAK)
-      #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_COLEMAK
-    #elif defined (MIRYOKU_TAP_COLEMAKDH)
-      #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_COLEMAKDH
-    #elif defined (MIRYOKU_TAP_COLEMAKDHK)
-      #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_COLEMAKDHK
-    #elif defined (MIRYOKU_TAP_DVORAK)
-      #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_DVORAK
-    #elif defined (MIRYOKU_TAP_HALMAK)
-      #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_HALMAK
-    #elif defined (MIRYOKU_TAP_WORKMAN)
-      #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_WORKMAN
-    #elif defined (MIRYOKU_TAP_QWERTY)
-      #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_QWERTY
-    #elif defined (MIRYOKU_TAP_QWERTZ)
-      #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_QWERTZ
+    #if defined (MIRYOKU_THUMBS_SWAP_OUTSIDE)
+      #if defined (MIRYOKU_TAP_AZERTY)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_AZERTY_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_TAP_BEAKL15)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_BEAKL15_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_TAP_COLEMAK)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_COLEMAK_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_TAP_COLEMAKDH)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_COLEMAKDH_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_TAP_COLEMAKDHK)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_COLEMAKDHK_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_TAP_DVORAK)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_DVORAK_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_TAP_HALMAK)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_HALMAK_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_TAP_WORKMAN)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_WORKMAN_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_TAP_QWERTY)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_QWERTY_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_TAP_QWERTZ)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_QWERTZ_SWAP_OUTSIDE
+      #else
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_COLEMAKDH_SWAP_OUTSIDE
+      #endif
     #else
-      #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_COLEMAKDH
+      #if defined (MIRYOKU_TAP_AZERTY)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_AZERTY
+      #elif defined (MIRYOKU_TAP_BEAKL15)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_BEAKL15
+      #elif defined (MIRYOKU_TAP_COLEMAK)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_COLEMAK
+      #elif defined (MIRYOKU_TAP_COLEMAKDH)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_COLEMAKDH
+      #elif defined (MIRYOKU_TAP_COLEMAKDHK)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_COLEMAKDHK
+      #elif defined (MIRYOKU_TAP_DVORAK)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_DVORAK
+      #elif defined (MIRYOKU_TAP_HALMAK)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_HALMAK
+      #elif defined (MIRYOKU_TAP_WORKMAN)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_WORKMAN
+      #elif defined (MIRYOKU_TAP_QWERTY)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_QWERTY
+      #elif defined (MIRYOKU_TAP_QWERTZ)
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_QWERTZ
+      #else
+        #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_COLEMAKDH
+      #endif
     #endif
   #endif
 #endif
@@ -1048,12 +1176,22 @@ Body of miryoku_layer_selection.h.
       #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_FLIP
     #endif
   #else
-    #if defined (MIRYOKU_NAV_INVERTEDT)
-      #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_INVERTEDT
-    #elif defined (MIRYOKU_NAV_VI)
-      #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_VI
+    #if defined (MIRYOKU_THUMBS_SWAP_OUTSIDE)
+      #if defined (MIRYOKU_NAV_INVERTEDT)
+        #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_INVERTEDT_SWAP_OUTSIDE
+      #elif defined (MIRYOKU_NAV_VI)
+        #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_VI_SWAP_OUTSIDE
+      #else
+        #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_SWAP_OUTSIDE
+      #endif
     #else
-      #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV
+      #if defined (MIRYOKU_NAV_INVERTEDT)
+        #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_INVERTEDT
+      #elif defined (MIRYOKU_NAV_VI)
+        #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_VI
+      #else
+        #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV
+      #endif
     #endif
   #endif
 #endif
@@ -1129,7 +1267,11 @@ Body of miryoku_layer_selection.h.
   #if defined (MIRYOKU_LAYERS_FLIP)
     #define MIRYOKU_LAYER_FUN MIRYOKU_ALTERNATIVES_FUN_FLIP
   #else
-    #define MIRYOKU_LAYER_FUN MIRYOKU_ALTERNATIVES_FUN
+    #if defined (MIRYOKU_THUMBS_SWAP_OUTSIDE)
+      #define MIRYOKU_LAYER_FUN MIRYOKU_ALTERNATIVES_FUN_SWAP_OUTSIDE
+    #else
+      #define MIRYOKU_LAYER_FUN MIRYOKU_ALTERNATIVES_FUN
+    #endif
   #endif
 #endif
 #if !defined(MIRYOKU_LAYERMAPPING_FUN)
@@ -1260,6 +1402,36 @@ prepended.
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTZ_FLIP \
 <<table-layer-taphold(alphas_table=qwertz, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_BASE_AZERTY_SWAP_OUTSIDE \
+<<table-layer-taphold(alphas_table=azerty, thumbs_table=thumbs-swap-outside)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_BEAKL15_SWAP_OUTSIDE \
+<<table-layer-taphold(alphas_table=beakl15, thumbs_table=thumbs-swap-outside)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_COLEMAK_SWAP_OUTSIDE \
+<<table-layer-taphold(alphas_table=colemak, thumbs_table=thumbs-swap-outside)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH_SWAP_OUTSIDE \
+<<table-layer-taphold(alphas_table=colemakdh, thumbs_table=thumbs-swap-outside)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_COLEMAKDHK_SWAP_OUTSIDE \
+<<table-layer-taphold(alphas_table=colemakdhk, thumbs_table=thumbs-swap-outside)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_DVORAK_SWAP_OUTSIDE \
+<<table-layer-taphold(alphas_table=dvorak, thumbs_table=thumbs-swap-outside)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_HALMAK_SWAP_OUTSIDE \
+<<table-layer-taphold(alphas_table=halmak, thumbs_table=thumbs-swap-outside)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_WORKMAN_SWAP_OUTSIDE \
+<<table-layer-taphold(alphas_table=workman, thumbs_table=thumbs-swap-outside)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_QWERTY_SWAP_OUTSIDE \
+<<table-layer-taphold(alphas_table=qwerty, thumbs_table=thumbs-swap-outside)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_QWERTZ_SWAP_OUTSIDE \
+<<table-layer-taphold(alphas_table=qwertz, thumbs_table=thumbs-swap-outside)>>
+
 #define MIRYOKU_ALTERNATIVES_BASE_AZERTY \
 <<table-layer-taphold(alphas_table=azerty)>>
 
@@ -1321,6 +1493,36 @@ prepended.
 #define MIRYOKU_ALTERNATIVES_TAP_QWERTZ_FLIP \
 <<table-layer-full(alphas_table=qwertz, thumbs_table=thumbs-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_TAP_AZERTY_SWAP_OUTSIDE \
+<<table-layer-full(alphas_table=azerty, thumbs_table=thumbs-swap-outside)>>
+
+#define MIRYOKU_ALTERNATIVES_TAP_BEAKL15_SWAP_OUTSIDE \
+<<table-layer-full(alphas_table=beakl15, thumbs_table=thumbs-swap-outside)>>
+
+#define MIRYOKU_ALTERNATIVES_TAP_COLEMAK_SWAP_OUTSIDE \
+<<table-layer-full(alphas_table=colemak, thumbs_table=thumbs-swap-outside)>>
+
+#define MIRYOKU_ALTERNATIVES_TAP_COLEMAKDH_SWAP_OUTSIDE \
+<<table-layer-full(alphas_table=colemakdh, thumbs_table=thumbs-swap-outside)>>
+
+#define MIRYOKU_ALTERNATIVES_TAP_COLEMAKDHK_SWAP_OUTSIDE \
+<<table-layer-full(alphas_table=colemakdhk, thumbs_table=thumbs-swap-outside)>>
+
+#define MIRYOKU_ALTERNATIVES_TAP_DVORAK_SWAP_OUTSIDE \
+<<table-layer-full(alphas_table=dvorak, thumbs_table=thumbs-swap-outside)>>
+
+#define MIRYOKU_ALTERNATIVES_TAP_HALMAK_SWAP_OUTSIDE \
+<<table-layer-full(alphas_table=halmak, thumbs_table=thumbs-swap-outside)>>
+
+#define MIRYOKU_ALTERNATIVES_TAP_WORKMAN_SWAP_OUTSIDE \
+<<table-layer-full(alphas_table=workman, thumbs_table=thumbs-swap-outside)>>
+
+#define MIRYOKU_ALTERNATIVES_TAP_QWERTY_SWAP_OUTSIDE \
+<<table-layer-full(alphas_table=qwerty, thumbs_table=thumbs-swap-outside)>>
+
+#define MIRYOKU_ALTERNATIVES_TAP_QWERTZ_SWAP_OUTSIDE \
+<<table-layer-full(alphas_table=qwertz, thumbs_table=thumbs-swap-outside)>>
+
 #define MIRYOKU_ALTERNATIVES_TAP_AZERTY \
 <<table-layer-full(alphas_table=azerty, thumbs_table=thumbs)>>
 
@@ -1357,6 +1559,15 @@ prepended.
 
 #define MIRYOKU_ALTERNATIVES_NAV_FLIP \
 <<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-l, mode="l", hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT_SWAP_OUTSIDE \
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r-invertedt-swap-outside, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_NAV_VI_SWAP_OUTSIDE \
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r-vi-swap-outside, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_NAV_SWAP_OUTSIDE \
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r-swap-outside, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT \
 <<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r-invertedt, mode="r")>>
@@ -1416,6 +1627,9 @@ prepended.
 
 #define MIRYOKU_ALTERNATIVES_FUN_FLIP \
 <<table-layer-half(current_layer_name="U_FUN", opposite_layer_name="U_MEDIA", half_table=fun-r, mode="r", hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_FUN_SWAP_OUTSIDE \
+<<table-layer-half(current_layer_name="U_FUN", opposite_layer_name="U_MEDIA", half_table=fun-l-swap-outside, mode="l")>>
 
 #define MIRYOKU_ALTERNATIVES_FUN \
 <<table-layer-half(current_layer_name="U_FUN", opposite_layer_name="U_MEDIA", half_table=fun-l, mode="l")>>
